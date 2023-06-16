@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
   
   categories?:Array<string>
   
-  constructor(private productService: ProductsService) { }
+  constructor(private productService: ProductsService,) { }
   ngOnInit(): void {
     this.getCategories();
   }
