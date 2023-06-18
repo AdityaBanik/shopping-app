@@ -15,7 +15,8 @@ export class ProductComponent {
   constructor(private store: Store){
   }
 
-  add(){
+  add(event:Event){
+    event.stopPropagation()
     const product = this.product!
     this.store.dispatch(addToCart({product,quantity:1}))
   }

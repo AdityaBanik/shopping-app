@@ -1,11 +1,18 @@
-<article class="relative drop-shadow-sm flex flex-col items-center space-y-2 h-full group p-2 md:p-8  rounded-2xl hover:cursor-pointer hover:shadow-2xl">
 
-    <div [ngStyle]="{ 'background-image': 'url(' + product?.images?.[0] + ')' }" class="h-full w-full rounded-2xl bg-cover bg-no-repeat bg-center md:hover:scale-105  mb-3">
-    </div>
 
-    <p class="capitalize font-medium group-hover:text-green-700 ">{{product?.title}}</p>
-    <p class="font-bold">${{product?.price}}</p>
-    <button (click)="add()" class="absolute m-4 right-0 top-0 text-green-500 bg-green-50 border w-10 h-10 rounded-full hover:shadow-md active:bg-yellow-400" aria-label="Example icon button with a menu icon">
+
+<article class="relative h-full">
+    <a routerLink="/products/{{product?.id}}" class="  drop-shadow-sm flex flex-col items-center space-y-2 h-full group p-2 md:p-8  rounded-2xl hover:cursor-pointer hover:shadow-2xl">
+
+        <div [ngStyle]="{ 'background-image': 'url(' + product?.images?.[0] + ')' }" class="h-full w-full rounded-2xl bg-cover bg-no-repeat bg-center md:hover:scale-105  mb-3">
+        </div>
+    
+        <p class="capitalize font-medium group-hover:text-green-700 ">{{product?.title}}</p>
+        <p class="font-bold">${{product?.price}}</p>
+       
+    </a>
+
+    <button (click)="add($event)" class="absolute m-4 right-0 top-0 text-green-500 bg-green-50 border w-10 h-10 rounded-full hover:shadow-md active:bg-yellow-400" aria-label="Example icon button with a menu icon">
         <mat-icon fontSet="material-icons-outlined">shopping_bags_outline</mat-icon>
     </button>
 </article>

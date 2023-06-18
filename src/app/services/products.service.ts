@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 
 @Injectable({
@@ -15,6 +15,10 @@ export class ProductsService {
       map(response => response.products))
   }
 
+  getSingleProduct(id:string): Observable<any> {
+    return this.http.get<any>(this.apiUrl + id)
+  }
+
   getProductsbyCategory(category:string): Observable<any>{
     return this.http.get<any>(`${this.apiUrl}category/${category}`).pipe(
       map(response => response.products))
@@ -24,6 +28,11 @@ export class ProductsService {
     return this.http.get<Array<string>>(this.apiUrl + 'categories')
   }
 
-  
+  searchProducts(searchTerm: string, limit: string = ''): Observable<any> {
+    const params = new HttpParams()
+      .set('q', searchTerm)
+      .set('limit', limit);
+    return this.http.get(this.apiUrl + 'search', { params: params });
+  }
   
 }

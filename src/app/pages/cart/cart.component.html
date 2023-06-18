@@ -1,15 +1,37 @@
 <h2 class="text-3xl font-bold text-center p-5">My Cart</h2>
 
 <ul class="container max-w-3xl  mx-auto">
-  <li *ngFor="let item of cartItems$ | async" class="">
-    <a class="flex justify-evenly items-center  space-y-2  p-5 rounded-xl ">
-      <img [src]="item.images[0]" alt="{{item.title}} image" class="rounded-xl object-cover bg-gray-500 w-[5em] h-[5em]">
-      <div>
-        <p class="capitalize text-slate-400">{{item.title}}</p>
-        <p class="font-bold">${{item.price}}</p>
-      </div>
-      <button  class="px-4 py-2 bg-red-400 text-white rounded-full">Remove</button>
-    </a>
-  </li>
-</ul>
+    <li *ngFor="let item of cartItems$ | async" class="my-4 py-4 shadow-sm  rounded-xl ">
+        <div class="grid grid-cols-3 items-center">
+            <img [src]="item.images[0]" alt="{{item.title}} image"
+                class="rounded-xl justify-self-center object-cover bg-gray-500 w-[5em] h-[5em]">
+            <div>
+                <p class="capitalize text-slate-400">{{item.title}}</p>
+                <p class="font-bold">${{item.price}}</p>
+            </div>
 
+            <div class="flex space-x-5 items-center drop-shadow-sm">
+                <button (click)="add(item)" aria-label="increase quantity"
+                    class="hover:bg-green-500 hover:text-white px-4 py-2 rounded-xl font-bold text-md bg-green-100 text-green-500">
+                    +
+                </button>
+                
+                <p class="font-semibold">{{item.quantity}}</p>
+                
+                <button (click)="remove(item.id)" aria-label="decrease quantity"
+                    class="hover:bg-red-500 hover:text-white px-4 py-2 rounded-xl font-bold text-md bg-green-100 text-green-500">
+                    -
+                </button>
+            </div>
+        </div>
+    </li>
+
+    <div *ngIf="(cartItems$ | async)!.length  > 0">
+        
+        <p class="flex p-10 font-black justify-between ">
+            <span class=" font-medium text-xl "> Subtotal : </span>
+            {{totalPrice$| async | currency}}
+        </p>
+    </div>
+    
+</ul>

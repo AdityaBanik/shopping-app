@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Product } from 'src/app/models/Product.model';
 
 
 @Component({
@@ -8,9 +9,9 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent {
-  constructor(private route:ActivatedRoute, ){}
+  constructor(private route:ActivatedRoute){}
 
-  products?:any 
+  products?:Product[] 
 
   ngOnInit(){
       this.products = this.route.snapshot.data['products']

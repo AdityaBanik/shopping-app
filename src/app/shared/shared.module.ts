@@ -1,14 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProductComponent } from './product/product.component';
-import { HeaderComponent } from './header/header.component';
 import { RouterModule } from '@angular/router';
 
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
+import { ProductComponent } from './product/product.component';
+import { HeaderComponent } from './header/header.component';
 import { SearchComponent } from './search/search.component';
-import {MatBadgeModule} from '@angular/material/badge';
 
+
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button'
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import {MatBadgeModule} from '@angular/material/badge';
     MatIconModule,
     MatButtonModule,
     RouterModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatAutocompleteModule
   ],
   exports:[
     ProductComponent,
