@@ -29,10 +29,15 @@ export class ProductsService {
   }
 
   searchProducts(searchTerm: string, limit: string = ''): Observable<any> {
-    const params = new HttpParams()
+    let params = new HttpParams()
       .set('q', searchTerm)
-      .set('limit', limit);
-    return this.http.get(this.apiUrl + 'search', { params: params });
+    
+      if (limit) {
+      params = params.set('limit', limit);
+    }
+  
+    return this.http.get(this.apiUrl + 'search', { params: params }).pipe(
+      map((response:any) => response.products));
   }
   
 }

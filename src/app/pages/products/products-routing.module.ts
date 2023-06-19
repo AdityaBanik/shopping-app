@@ -4,6 +4,7 @@ import { ProductsComponent } from './products.component';
 import { ProductsResolver } from './products.resolver';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ProductResolver } from './product.resolver';
+import { SearchResolver } from './search.resolver';
 
 
 const routes: Routes = [
@@ -15,12 +16,21 @@ const routes: Routes = [
       }
     },
     {
+      path: 'search',
+      component: ProductsComponent,
+      resolve: {
+        products : SearchResolver
+      },
+      runGuardsAndResolvers: 'always'
+    },
+    {
       path: ':product',
       component : ProductDetailComponent,
       resolve: {
         product : ProductResolver
       }
     }
+
 ];
 
 @NgModule({
@@ -28,7 +38,8 @@ const routes: Routes = [
   exports: [RouterModule],
   providers:[
     ProductsResolver,
-    ProductResolver
+    ProductResolver,
+    SearchResolver
   ]
 })
 export class ProductsRoutingModule { }

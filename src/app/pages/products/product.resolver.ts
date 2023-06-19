@@ -11,7 +11,7 @@ export class ProductResolver implements Resolve<any>{
 
     resolve(route: ActivatedRouteSnapshot):Observable<any> {
         const productUrl = route.paramMap.get('product') || ''
-        console.log(productUrl)
+        
         return this.products.getSingleProduct(productUrl)
     }
 }

@@ -5,18 +5,22 @@ import { RouterModule } from '@angular/router';
 import { ProductComponent } from './product/product.component';
 import { HeaderComponent } from './header/header.component';
 import { SearchComponent } from './search/search.component';
-
+import { FooterComponent } from './footer/footer.component';
+import { CarouselListComponent } from './carousel-list/carousel-list.component';
 
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button'
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
+
 @NgModule({
   declarations: [
     ProductComponent,
     HeaderComponent,
-    SearchComponent
+    SearchComponent,
+    FooterComponent,
+    CarouselListComponent
   ],
   imports: [
     CommonModule,
@@ -24,12 +28,14 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     MatButtonModule,
     RouterModule,
     MatBadgeModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    
   ],
   exports:[
     ProductComponent,
     HeaderComponent,
-    SearchComponent
+    SearchComponent,
+    CarouselListComponent
   ]
 })
 export class SharedModule { }
