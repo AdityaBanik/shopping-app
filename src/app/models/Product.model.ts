@@ -1,5 +1,5 @@
 export interface Product {
-    id: number;
+    id: string;
     title: string;
     description: string;
     price: number;
@@ -12,3 +12,4 @@ export interface Product {
     images: Array<string>;
     quantity?: number; // Optional quantity property
   }
+  

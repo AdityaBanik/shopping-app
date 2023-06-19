@@ -28,7 +28,7 @@ export class CartComponent implements OnInit {
     this.store.dispatch(addToCart({ product, quantity: 1 }))
   }
 
-  remove(productId: number) {
+  remove(productId: string) {
     this.store.dispatch(removeFromCart({ productId}))
   }
 }
