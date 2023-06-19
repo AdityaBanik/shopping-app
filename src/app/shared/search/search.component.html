@@ -1,11 +1,11 @@
 <div class="flex items-center  bg-slate-50 rounded-lg p-2 px-3 max-w-md">
     <mat-icon>search</mat-icon>
-    <input type="text" [matAutocomplete]="auto" (input)="onInputChange($event)" class="focus:outline-none px-5  w-full bg-slate-50" placeholder="search items...">
+    <input type="text" [matAutocomplete]="auto" (keydown.enter)="submitSearch($event)" (input)="onInputChange($event)" class="focus:outline-none px-5  w-full bg-slate-50" placeholder="search items...">
     <button class="bg-green-400 p-2 text-white rounded-lg  ">
         <mat-icon class="align-middle">filter_list</mat-icon>
     </button>
 
-    <mat-autocomplete #auto="matAutocomplete" class="mt-4 !shadow-lg !rounded-b-xl ">
+    <mat-autocomplete (optionSelected)="onOptionSelected($event)" #auto="matAutocomplete" class="mt-4 !shadow-lg !rounded-b-xl ">
         <mat-option  *ngFor="let option of options" [value]="option" class="[&>*]:text-black  !hover:bg-slate-400">
           {{option}}
         </mat-option>
