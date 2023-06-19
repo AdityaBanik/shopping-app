@@ -1,6 +1,6 @@
 <h2 class="text-3xl font-bold text-center p-5">My Cart</h2>
 
-<ul class="container max-w-3xl  mx-auto">
+<ul class="container max-w-3xl  mx-auto " *ngIf="(cartItems$ | async)!.length  > 0">
     <li *ngFor="let item of cartItems$ | async" class="my-4 py-4 shadow-sm  rounded-xl ">
         <div class="grid grid-cols-3 items-center">
             <img [src]="item.images[0]" alt="{{item.title}} image"
@@ -26,7 +26,7 @@
         </div>
     </li>
 
-    <div *ngIf="(cartItems$ | async)!.length  > 0">
+    <div >
         
         <p class="flex p-10 font-black justify-between ">
             <span class=" font-medium text-xl "> Subtotal : </span>
@@ -35,3 +35,9 @@
     </div>
     
 </ul>
+
+
+<div *ngIf="(cartItems$ | async)!.length==0" class="text-center  mt-32 mx-auto">
+    <h2 class="capitalize text-xl font-sans font-bold tracking-wider  my-3">Your cart looks empty !</h2> 
+    <a routerLink="/home" class="text-2xl font-bold tracking-wide text-slate-300 hover:text-green-500">Start Shopping</a>  
+</div>

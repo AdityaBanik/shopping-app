@@ -5,7 +5,7 @@
         </button>
     
         <a class="text-gray-400" routerLink="cart" >
-            <mat-icon matBadgeColor="accent" [matBadge]="totalItems$|async">shopping_bag</mat-icon>
+            <mat-icon matBadgeColor="accent" [matBadgeHidden]="(totalItems$| async) === 0" [matBadge]="totalItems$|async">shopping_bag</mat-icon>
         </a>
     </div>
 </header>
