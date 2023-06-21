@@ -22,6 +22,12 @@ const routes: Routes = [
   {
     path: 'cart',
     component: CartComponent
+  },
+  {
+    path: 'accounts',
+    loadChildren: () => import('./pages/auth/auth.module').then(
+      data => data.AuthModule 
+     )
   }
 ];
 

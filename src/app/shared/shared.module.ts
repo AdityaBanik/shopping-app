@@ -36,7 +36,8 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     HeaderComponent,
     SearchComponent,
     CarouselListComponent,
-    FooterComponent
+    FooterComponent,
+    MatIconModule
   ]
 })
 export class SharedModule { }

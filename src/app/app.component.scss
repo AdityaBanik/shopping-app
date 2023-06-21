@@ -1,0 +1,11 @@
+
+
+
+
+a{
+    @apply  mb-3 tracking-wide font-semibold text-white text-lg flex items-center;
+    >*{
+        @apply mr-3 p-1 text-green-500 bg-green-50 rounded-lg flex justify-center items-center;
+      
+    }
+}

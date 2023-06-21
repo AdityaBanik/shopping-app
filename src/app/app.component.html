@@ -1,9 +1,30 @@
+<mat-drawer-container [hasBackdrop]="false">
+  <mat-drawer #drawer mode="push" class="rounded-r-3xl w-3/6 max-w-[16rem] py-20 px-10 !bg-green-500">
+    <a routerLink="/">
+      <div>
+        <mat-icon>home</mat-icon>
+      </div> 
+      Home
+    </a>
+    
+    <a routerLink="/accounts/login">
+      <div>
+        <mat-icon>login</mat-icon>
+      </div> 
+      Login
+    </a>
+    <a href="#">
+      <div>
+        <mat-icon>logout</mat-icon>
+      </div> 
+      Logout
+    </a>
+  </mat-drawer>
 
+  <app-header [drawerRef]="drawer"></app-header>
+  <main class="w-[90%] mx-auto container min-h-[100vh]">
+    <router-outlet></router-outlet>
+  </main>
 
-
-<app-header></app-header>
-<main class="w-[90%] mx-auto container min-h-[100vh]">
-  
-  <router-outlet></router-outlet>
-</main>
-<app-footer></app-footer>
+  <app-footer></app-footer>
+</mat-drawer-container>
