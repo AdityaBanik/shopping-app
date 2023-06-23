@@ -7,13 +7,13 @@
       Home
     </a>
     
-    <a routerLink="/accounts/login">
+    <a routerLink="/accounts/login" *ngIf="!(loginStatus$|async)">
       <div>
         <mat-icon>login</mat-icon>
       </div> 
       Login
     </a>
-    <a href="#">
+    <a (click)="logout()" class="cursor-pointer" *ngIf="loginStatus$|async">
       <div>
         <mat-icon>logout</mat-icon>
       </div> 

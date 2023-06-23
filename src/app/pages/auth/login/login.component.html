@@ -1,1 +1,27 @@
-<p>login works!</p>
+
+
+<section class="mt-20">
+    <h1 class="text-3xl font-bold text-center m-10">Log in</h1>
+    <form #myform class="flex flex-col space-y-5 max-w-md mx-auto" (submit)="onSubmit($event,myform)"> 
+        <div class="bg-white flex items-center p-1 px-3 rounded-xl">
+            <div class="field-icon">
+                <mat-icon>email</mat-icon>
+            </div>
+            <input type="text" name="username" class="px-2 py-2 text-lg focus:outline-none w-full" placeholder="Username"  required>
+        </div>
+        
+        <div class="bg-white flex items-center p-1 px-3 rounded-xl">
+            <div class="field-icon">
+                <mat-icon>password</mat-icon>
+            </div>
+            <input type="password" name="password" class="px-2 py-2 text-lg focus:outline-none w-full" placeholder="Password" required>
+        </div>
+        <button type="submit" class="rounded-full mx-auto  font-semibold text-white bg-green-500 px-12 py-3 hover:drop-shadow-xl hover:bg-green-600 active:bg-yellow-500">Log in</button>
+    </form>
+    <hr class="m-8">
+    
+    <div class="flex space-x-3 justify-center">
+        <p class="text-slate-400 font-medium">Don't have an account?</p>
+        <a class="font-bold" routerLink="/accounts/register">Sign up</a>
+    </div>
+</section>

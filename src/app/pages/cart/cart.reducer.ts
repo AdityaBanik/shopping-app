@@ -1,11 +1,11 @@
 import { createReducer, on } from '@ngrx/store';
 
-import { addToCart,removeFromCart,clearCart } from './cart.actions';
+import { addToCart,removeFromCart,clearCart, loadCart } from './cart.actions';
 import { Product } from 'src/app/models/Product.model';
 
 
 
-interface CartState {
+export interface CartState {
   items: Product[];
   totalPrice: number;
   totalItems: number;
@@ -19,8 +19,9 @@ export const initialState: CartState = {
 
 export const cartReducer = createReducer(
   initialState,
-  
-  
+  on(loadCart,(state,{cart})=> 
+    cart
+  ),
   on(addToCart, (state, { product, quantity }) => {
     const item = state.items.find(element => element.id === product.id);
     if (item) {
@@ -57,7 +58,7 @@ export const cartReducer = createReducer(
         newItems = state.items.map(element => (element.id === productId ? newItem : element));
     }
     else{
-         newItems = state.items.filter(element => element.id !== productId)
+        newItems = state.items.filter(element => element.id !== productId)
     }
     
     return {
